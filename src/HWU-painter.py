@@ -1,5 +1,5 @@
-import *operationsFn.py
 import *setup.py
+import *operationsFn.py
 import json
 
 
