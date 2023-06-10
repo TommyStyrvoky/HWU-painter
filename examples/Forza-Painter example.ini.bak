@@ -1,0 +1,10 @@
+[function]
+type =renderJson
+
+[parameters]
+file = C:\Users\Tommy\Documents\forza-painter-master\tmp.json
+positionX = 0
+PositionY = 0
+scaleFactor = 0.2
+view = above
+rotation = 0

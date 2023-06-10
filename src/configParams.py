@@ -1,4 +1,4 @@
-#shape primitive mapping
+#shape primitive mapping (page,row,col)
 square =[2,0,0]
 circle=[2,1,0]
 hexagon = [2,1,2]

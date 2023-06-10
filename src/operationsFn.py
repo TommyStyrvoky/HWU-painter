@@ -1,5 +1,5 @@
-import *controllerFn.py
-import *configParams.py
+from controllerFn import *
+from configParams import *
 import colorsys
 import math
 
@@ -22,6 +22,7 @@ def lerp(start,end,alpha):
             return start
     else:
         return start + (end-start)*alpha
+
 def convertColor(colorValue):#convert RGB to required controller input steps
     hsv = list(colorsys.rgb_to_hsv(colorValue[0]/255,colorValue[1]/255,colorValue[2]/255))
     steps =[36,20,20]

@@ -1,7 +1,5 @@
-import *setup.py
-import *operationsFn.py
+from operationsFn import *
 import json
-
 
 def generateLayer(parameters):
     updateGamepad()
@@ -41,7 +39,7 @@ def deleteLayerRange(startLayer,endLayer):
         pressKey(dpad_up,minPressTime)
         time.sleep(debounceTime)
         
-def loadForzaPainter(file,startPos,scaleFact,view,rotation):#startPos,angle
+def renderJson(file,startPos,scaleFact,view,rotation):
     f = open(file)
     data = json.load(f)
     f.close()
@@ -54,7 +52,7 @@ def loadForzaPainter(file,startPos,scaleFact,view,rotation):#startPos,angle
             if type(layer['type'])==list: #load custom shape
                  shape = layer['type']
             elif type(shape)==int:
-                shape = mapShapes[]
+                shape = mapShapes[shape]
             xPos = ((layer['data'][0])*scaleFact-layerSize[0]/2*scaleFact)#+startPos[0]
             yPos = ((-layer['data'][1])*scaleFact+layerSize[1]/2*scaleFact)#+startPos[1]
             position = [xPos,yPos]
@@ -134,7 +132,7 @@ def renderText(text,view,startPos,rotation,size,font,color):
         currentRow += textHeight
         
         
-def renderPattern(shape,view,startPos,rotation,size,count,spacing,color,colorDiag,transparency,transpDiag,rowShift,rowSum,shapeAngle):
+def renderGrid(shape,view,startPos,rotation,size,count,spacing,color,colorDiag,transparency,transpDiag,rowShift,rowSum,shapeAngle):
     for y in range(0,count[0]):
         for x in range(0,count[1]):
             offset = 0
@@ -155,4 +153,3 @@ def renderPattern(shape,view,startPos,rotation,size,count,spacing,color,colorDia
                 colorLerped = lerp(color[0],color[1],x/(count[1]-1))
             newLayer =dict(view=view,shape=shape,color=colorLerped,position =position,rotation=rotation+shapeAngle,size=size,transparency=transparencyLerped)
             generateLayer(newLayer)
-            
